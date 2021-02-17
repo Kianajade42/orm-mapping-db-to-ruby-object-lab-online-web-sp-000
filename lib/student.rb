@@ -40,7 +40,7 @@ end
 
   def save
     sql = <<-SQL
-      INSERT INTO students (name, grade)
+      INSERT INTO student (name, grade)
       VALUES (?, ?)
     SQL
 
@@ -49,7 +49,7 @@ end
 
   def self.create_table
     sql = <<-SQL
-    CREATE TABLE IF NOT EXISTS students (
+    CREATE TABLE IF NOT EXISTS student (
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade TEXT
@@ -60,7 +60,7 @@ end
   end
 
   def self.drop_table
-    sql = "DROP TABLE IF EXISTS students"
+    sql = "DROP TABLE IF EXISTS student"
     DB[:conn].execute(sql)
   end
 end
