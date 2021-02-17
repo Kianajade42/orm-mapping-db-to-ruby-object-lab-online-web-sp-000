@@ -15,7 +15,8 @@ class Student
    FROM students
  SQL
 
- DB[:conn].execute(sql).map do |row| self.new_from_db(row)
+ DB[:conn].execute(sql).map do |row|
+    self.new_from_db(row)
  end
  end
 
@@ -43,7 +44,7 @@ def save
 
   def self.create_table
     sql = <<-SQL
-    CREATE TABLE IF NOT EXISTS student (
+    CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade TEXT
